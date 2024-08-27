@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+section {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #000;
+    background-image: url(../img/rose.jpg);
+    background-repeat: no-repeat; /*이미지를 반복해서 채우지 않음*/
+    /*repeat-y => y축으로만 가득 채움*/
+    background-position: center center;
+    background-size: contain;/*사진 크기 배율에 맞게 가득 채움*/
+    /*cover => 해당 공간을 가득 채우기(자동 변경)*/
+}
