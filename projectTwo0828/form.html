@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:3000/posts" method="POST">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="author" placeholder="Author">
+        <button type="submit">Create</button>
+    </form>
+    <h2 id="clock"></h2>
+    <script>
+        function updateClock(){
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2,'0');//padStart(num,'String'),2자리에서 빈 곳이 있으면 0을 넣어준다.
+            const minutes = String(now.getMinutes()).padStart(2,'0');
+            const seconds = String(now.getSeconds()).padStart(2,'0');
+            const timeString = `${hours}:${minutes}:${seconds}`;//리터럴 상수처리로 ${}형태로 변수를 받아와서 문자처럼 출력
+
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock,1000);//앞의 함수를 1000ms(1초)간격으로 실행, 시작지점부터 시간 측정 setTimeout은 해당 구문이 끝난 후 부터 시간 측정
+        updateClock();
+    </script>
+</body>
+</html>
