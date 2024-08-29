@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model.number="dan" placeholder="단을 입력하세요">
+        <button @click="gugudan">구구단 출력</button>
+        <ul>
+            <li v-for="item in result">{{item}}</li><!--v-if, v-for, v-model.varName 등등 v-키워드로 다양한 변수처리가 가능하다.-->
+        </ul>
+        <p v-if="errorMessage">{{errorMessage}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+     <script>
+        var app = new Vue({
+            el:'#app',//div의 아이디 (Element의 약자)
+            data:{//변수의 초기화 
+                dan:0,
+                result:[],
+                errorMessage:""
+            },
+            methods:{//button등 함수를 정의하고 사용할 수 있게 해줌
+                gugudan(){
+                    if(this.dan <= 0){
+                        this.errorMessage="0과 음수값은 입력할 수 없습니다.";
+                        this.result = [];
+                    }else{
+                        this.errorMessage="";
+                        for(let i = 1; i <=9; i++){
+                            this.result.push(`${this.dan} X ${i} = ${this.dan * i}`);
+                        }
+                    }
+                }
+            }
+        })
+     </script>
+</body>
+</html>
